@@ -20,4 +20,5 @@ answer = ->
     result += number if number % 2 is 0
   return result
 
-console.log answer()
+window.onload = ->
+  document.body.innerHTML = '<h1>' + answer() + '</h1>'

@@ -4,4 +4,5 @@ answer = ->
     result += num if num % 3 is 0 or num % 5 is 0
   return result
 
-console.log answer()
+window.onload = ->
+  document.body.innerHTML = '<h1>' + answer() + '</h1>'

@@ -22,4 +22,5 @@ answer = ->
     primeDivisors.push(divisor)
   console.log number, divisor
 
-console.log answer()
+window.onload = ->
+  document.body.innerHTML = '<h1>' + answer() + '</h1>'
