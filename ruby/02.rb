@@ -6,23 +6,25 @@
 # By considering the terms in the Fibonacci sequence whose
 # values do not exceed four million,
 # find the sum of the even-valued terms.
-def fibonacci (first=0, second=1, range=10)
-  num = first
-  proximo = 0
-  arr = []
-
-  while proximo <= range do
-    if num <= 1
-      proximo = num
-    else
-      proximo = first + second
-      first = second
-      second = proximo
-    end
-    arr.push(proximo)
-    num += 1
+class Fibonacci
+  def at(n)
+    Integer((PHI ** n - PSI ** n)/(PHI - PSI))
   end
-  arr
+
+  private
+
+  PHI = (1 + Math.sqrt(5))/2.0
+  PSI = 1 - PHI
 end
 
-puts fibonacci(1, 2, 10)
+result = 0
+fib = Fibonacci.new
+
+(0..Float::INFINITY).lazy.each do |n|
+  number = fib.at(n)
+  break if number > 4_000_000
+  puts "#{n} -> #{number}"
+  result += number if number.even?
+end
+
+puts "result is:\n#{result}"
