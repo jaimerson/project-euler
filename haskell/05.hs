@@ -3,11 +3,8 @@
 
 module Main where
 
-dividedByAll :: Int -> [Int] -> Bool
-dividedByAll x xs = all (\y -> x `rem` y == 0) xs
+lcm' :: Integral a => [a] -> a
+lcm' [] = 1
+lcm' (x:xs) = lcm x (lcm' xs)
 
-smallestMultiple :: [Int] -> Int
-smallestMultiple [] = error "No elements on list"
-smallestMultiple xs = head [ x | x <- [1 ..], x `dividedByAll` xs]
-
-main = print (smallestMultiple [1..20])
+main = print (lcm' [1..20])
